@@ -5,7 +5,9 @@ url = "mongodb+srv://admin:admin@cluster0.ivifd.mongodb.net/pytech";
 client = MongoClient(url);
 #Create a variable named db and assign it to the pytech database instance.
 db = client.pytech;
+#pulls table from pytech database
 col=db.students;
+#creates fred's data
 print("-- INSERT STATEMENTS --")
 fred = {
 "student_id": "1007",
@@ -27,8 +29,10 @@ fred = {
     }
 ]
 }
+#adds data to table and prints the document id
 fred_student_id = col.insert_one(fred).inserted_id;
 print("Inserted student record Fred Johnson into the student collection with document id: "+ str(fred_student_id));
+#creates john's data
 john = {
 "student_id": "1008",
 "first_name": "John",
@@ -49,9 +53,10 @@ john = {
     }
 ]
 }
+#adds data to table and prints the document id
 john_student_id = col.insert_one(john).inserted_id;
 print("Inserted student record John Smith into the student collection with document id: "+ str(john_student_id));
-
+#creates mike's data
 mike = {
 "student_id": "1009",
 "first_name": "Mike",
@@ -72,6 +77,7 @@ mike = {
     }
 ]
 }
+#adds data to table and prints the document id
 mike_student_id = col.insert_one(mike).inserted_id;
 print("Inserted student record Mike Wildos into the student collection with document id: " + str(mike_student_id));
 print("")
